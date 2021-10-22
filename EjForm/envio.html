@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Enviar formulario</title>
+	</head>
+<body>
+	<form method="get" action="http://suservidor/supath/pruebaform.php" enctype="multipart/form-data">
+		<p>Login</p>
+		Usuario: <input type="text" name="usuario" /><br/>
+		Password: <input type="password" name="password"/><br/>
+		
+		<p>Género</p>
+		Masculino: <input type="radio" name="genero" value="M"/><br/>
+		Femenino: <input type="radio" name="genero" value="F"/><br/>
+		
+		<p>Tipo</p>
+		Estudiante: <input type="radio" name="tipo" value="E"/><br/>	
+		Profesor: <input type="radio" name="tipo" value="P"/><br/>
+		
+		<p>Gustos</p>
+		Manzana: <input type="checkbox" name="fruta[]" value="manzana"/><br/>	
+		Pera: <input type="checkbox" name="fruta[]" value="pera"/><br/>	
+		Banana: <input type="checkbox" name="fruta[]" value="banana"/><br/>	
+		Uva: <input type="checkbox" name="fruta[]" value="uva"/><br/>
+		Naranja: <input type="checkbox" name="fruta[]" value="naranja"/><br/>	
+		
+		<p>Datos</p>
+		Archivo: <input type="file" name="archivo" /><br/>
+		
+		<input type="submit"/>
+		<input type="reset"/>
+	</form>
+</body>
+</html>

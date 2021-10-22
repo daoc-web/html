@@ -1,0 +1,87 @@
+ <!DOCTYPE html>
+
+<html lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Información del proyecto</title>
+            
+    <style>
+      ol{
+        padding :0;
+        margin: 0;
+        list-style: none;
+      }
+      
+      ol li{
+        padding: 0;
+        clear: both;
+        margin: 0 0 10px 0;
+      }
+      
+      label{
+        width: 150px;
+        float: left;
+      }
+      
+      .simpleColorContainer, .simpleColorDisplay{
+        float: left;
+      }
+    </style>
+  </head>
+  <body id="forms">
+    
+    <form method="post" action="http://suservidor/path/pruebaform.php">
+      
+      <fieldset id="personal_information">
+        <legend>Información proyecto</legend>
+        <ol>
+          <li>
+            <label for="name">Nombre</label>
+            <input type="text" name="name" autofocus="autofocus" id="name">
+          </li>
+          
+          <li>
+            <label for="priority">Prioridad</label>
+            <input type="range" min="0" max="10" 
+                   name="priority" value="0" id="priority">
+          </li>
+          
+          <li>
+            <label for="estimated_hours">Horas estimadas</label>
+            <input type="number" name="estimated_hours"
+                   min="0" max="1000"
+                   id="estimated_hours">
+          </li>
+          
+          <li>
+            <label for="start_date">Fecha inicio</label>
+            <input type="date" name="start_date" id="start_date"
+                   value="2010-12-01">
+          </li>
+
+          <li>
+            <label for="email">Email de contacto</label>
+            <input type="email" name="email" id="email">
+          </li>
+          
+          <li>
+            <label for="url">URL de base</label>
+            <input type="url" name="url" id="url">
+          </li>
+          
+          <li>
+            <label for="project_color">Color del proyecto</label>
+            <input type="color" name="project_color" id="project_color">
+          </li>
+          <li>
+            <input type="submit" value="Submit">
+          </li>
+        </ol>
+        
+      </fieldset>
+
+    </form>
+  </body>
+</html>
+  

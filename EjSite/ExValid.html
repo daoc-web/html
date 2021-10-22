@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Ejemplo JS ApWeb</title>
+  <link rel="stylesheet" href="estilo.css">
+  <script type="text/javascript">
+    function validate(form){
+      var userName = form.Username.value;
+
+      if (userName.length === 0) {
+        alert("Ingrese un usuario.");
+        return false;
+      }
+
+      return true;
+    }
+</script>
+</head>
+
+<body>
+
+<!-- Site navigation menu -->
+<div id="navbar">
+	<ul class="navbar">
+	  <li><a href="index.html">Home</a></li>
+	  <li><a href="descripcion.html">Descripción</a></li>
+	  <li><a href="prerequisitos.html">Prerequisitos</a></li>
+	  <li><a href="texto.html">Textos de Referencia</a></li>
+	  <li><a href="metodologia.html">Reglas</a></li>
+	  <li><a href="ExValid.html">Ejemplo JS</a></li>
+	</ul>
+</div>
+
+<h3>Ejemplo formulario y validación</h3>
+
+<form method="post" action="index.html" onsubmit="return validate(this);">
+
+ <p>Usuario: <input type="text" name="Username" size="10"><br/>
+	 <input type="submit" value="Enviar">
+	 <input type="reset" value="Reset">
+ </p>
+</form>
+
+</body>
+
+</html>
