@@ -23,7 +23,7 @@
 				if(localStorage[usuario] === undefined) {
 					alert("El usuario no existe");
 					return false;
-				} else if(localStorage[usuario] !== form.edad.value) {
+				} else if(localStorage[usuario] !== form.clave.value) {
 					alert("El password no existe");
 					return false;				
 				}
@@ -51,16 +51,16 @@
 		</script>
 	</head>
 
-	<body onload="storage()">
+	<body onload="storage();">
 	
 		<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
 		</canvas>
 	
 		<a href="https://developer.mozilla.org/en-US/docs/Canvas_tutorial">Canvas</a>
 	
-		<form method="post" action="http://172.16.27.107/pruebaform.php" onsubmit="return validar(this)">
+		<form method="post" action="http://daoc.ml/prueba/pruebaform.php" onsubmit="return validar(this)">
 			<span id="uno">Nombre: </span><input type="text" name="nombre"/><br/>
-			<span id="dos">Pwd: </span><input type="text" name="edad"/><br/>
+			<span id="dos">Pwd: </span><input type="text" name="clave"/><br/>
 			<input type="submit" value="Enviar"/>			
 		</form>
 	</body>

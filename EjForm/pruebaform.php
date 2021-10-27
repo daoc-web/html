@@ -50,7 +50,7 @@ else
   {
   echo "Nombre: " . $_FILES["archivo"]["name"] . "<br/>";
   echo "Tipo: " . $_FILES["archivo"]["type"] . "<br/>";
-  echo "Tamaño: " . ($_FILES["archivo"]["size"] / 1024) . " kB<br/>";
+  echo "TamaÃ±o: " . ($_FILES["archivo"]["size"] / 1024) . " kB<br/>";
   echo "Guardado en: " . $_FILES["archivo"]["tmp_name"] . "<br/>";;
   
   $filecontents = file_get_contents($_FILES["archivo"]["tmp_name"]);
