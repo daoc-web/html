@@ -18,12 +18,16 @@ Un lenguaje de marcado permite definir el contenido y la estructura de la inform
 </html>
 ```
 
-> las etiquetas que definen los elementos las verá indicadas por los símbolos `< >` y generalmente vienen en pares, delimitando el elemento: una que indica el inicio y otra el final
->-   `<html> ... </html>` es el elemento raíz del árbol. Se abre con `<html>` y se cierra con `</html>`.
->- A su interior irán todos los demás elementos del documento formando el árbol
->- Muchos elementos contienen texto solamente (en este caso `title` y `p`) y otros pueden tener una combinación de elementos y texto
->- Ciertas etiquetas sin contenido explícito (ni texto ni otros elementos) pueden abrirse y cerrarse en la misma etiqueta con los símbolos `< ... />`. En la etiqueta `meta` tiene un ejemplo.
->- Las etiquetas pueden tener también elementos especiales, llamados atributos, que brindan información adicional. Los atributos son pares `clave=valor`, separados por espacios si hay más de uno. En `meta` tiene también un ejemplo de esto con el atributo `charset`.
+Las etiquetas que definen los elementos las verá indicadas por los símbolos `< >`, y generalmente vienen en pares, delimitando el elemento: una que indica el inicio y otra el final
+-   `<html> ... </html>`, por ejemplo, es el elemento raíz del árbol. Se abre con `<html>` y se cierra con `</html>`.
+    - A su interior irán todos los demás elementos del documento formando el árbol
+- Muchos elementos contienen texto solamente (en este caso `title` y `p`) y otros pueden tener una combinación de elementos y texto
+- Ciertos elementos sin contenido explícito (ni texto ni otros elementos) pueden abrirse y cerrarse en la misma etiqueta con los símbolos `< ... />`.
+    - En la etiqueta `meta` tiene un ejemplo.
+- Las etiquetas pueden tener también elementos especiales, llamados atributos, que brindan información adicional. Los atributos son pares `clave=valor`, separados por espacios si hay más de uno.
+    - En `meta` tiene también un ejemplo de esto con el atributo `charset`.
+
+A continuación una representación del árbol del documento en este ejemplo:
 
 ```mermaid
 flowchart TB
@@ -38,7 +42,7 @@ flowchart TB
 ```
 > La etiqueta `<!DOCTYPE html>`, no forma parte del árbol estríctamente. Es lo que se llama una "meta etiqueta", que proporciona información general sobre el documento. En este caso indica que es un documento html.
 
-Se ha visto hasta el momento ciertos elementos html de base:
+Se han visto hasta el momento ciertos elementos html de base:
 
 - `html` define la raíz del árbol del documento. Todo el resto de elementos y contenido deberá estar contenido aquí.
 - `head` proporciona información general del documento, la cual no se verá en la página web misma pero ayuda a su confuiguración.
