@@ -233,12 +233,16 @@ Vamos a revisar aquí algunos de los elementos HTML más comunes:
 
         <script src="codigo.js" defer />
         ```
-
-> Para revisar más elementos puede seguir [este link](https://www.w3schools.com/tags/).
+- Iframe
+    - `iframe` permite presentar o incrustar otra página web dentro de la que se está diseñando. Con el atributo `src` se indica la URL de la página que se va a incrustar, y con los atributos `width` y `height` se define el tamaño del "frame" donde se presentará.
+        ```html
+        <iframe src="otrapagina.html" height="400" width="600" />
+        ```    
+> Hay muchísimos elementos html que pueden utilizarse. Para revisarlos siga [este link](https://www.w3schools.com/tags/).
 
 ## Elementos semánticos
 
-Los elementos típicos HTML no llevan ninguna información acerca del contenido que incluyen. A partir de HTML5 se incluyeron elementos que indican el tipo de información que incluyen.
+Los elementos típicos HTML no llevan ninguna información acerca de su contenido. A partir de HTML5 se añadieron elementos que indican el tipo de información que incluyen.
 
 Estos elementos semánticos pueden facilitar la mejor comprensión del contenido de una página web, tanto para desarrolladores, como para programas de análisis automático. Su contenido no es obligatorio pero es muy recomendado.
 
@@ -256,19 +260,88 @@ A continuación algunos de los más relevantes:
 
 Familiarísese con los [elementos semánticos](https://www.w3schools.com/html/html5_semantic_elements.asp)
 
+## Multimedia
+
+Es muy común querer incluir elementos multimedia (además de imágenes) en una página web. Los elementos más usados son `video` y `audio`:
+
+- Con `video` puede incrustar un video en su página. Con los atributos `width` y `height` se especifica el tamaño de la ventana donde se verá el video, y con el atributo `controls` se incluyen controles para play, stop, pause, ... Es necesario indicar la URL y formato de video en los atributos `src` y `type` del elemento interno `source`. 
+    ```html
+    <video height="400" width="600" controls>
+        <source src="mipeli.mp4" type="video/mp4">
+    </video>
+    ```  
+- `audio` puede incrustar un archivo de audio en su página. Con el atributo `controls` se incluyen controles para play, pause y volumen. Es necesario indicar la URL y formato de audio en los atributos `src` y `type` del elemento interno `source`. 
+    ```html
+    <audio controls>
+        <source src="miaudio.mp3" type="audio/mpeg">
+    </audio>
+    ``` 
+[Familiarísese con otras opciones multimedia.](https://www.w3schools.com/html/html_media.asp)
+
 ## Formularios
 
 Los formularios permiten recolectar información del usuario, que generalmente es enviada a un programa en el backend o servidor para su procesamiento.
 
+Tal vez los dos elementos más importantes al crear un formulario son `form` e `input`:
 
+- `form` es el contenedor del formulario. Permite indicar cómo y a dónde se enviará la información, y en su interior están los elementos que recolectarán los datos del cliente, generalmente elementos `input`. El elemento `form` se configura mediante atributos, de los cuales el más importante es `action`, donde se indica la URL del programa que recibirá los datos del formulario cuando el cliente los envíe. Por defecto los datos de un formulario se envían utilizndo el método http GET. Si se desea enviar los datos con POST, se debe añadir el atributo `method`. Al enviar la información al servidor, los caracteres se codifican por defecto en el formato `application/x-www-form-urlencoded`. Si se desea cambiar el formato, por ejemplo para enviar archivos, lo cual requiere el formato `multipart/form-data`, se debe usar el atributo `enctype`. Unos ejemplos a continuación:
 
-Familiarísese con los [formularios](https://www.w3schools.com/html/html_forms.asp).
+```html
+<form action="programa.php">
+    ...
+</form>
+
+<form action="programa.php" method="post">
+    ...
+</form>
+
+<form action="programa.php" method="post" enctype="multipart/form-data">
+    ...
+</form>
+```
+>- El primer ejemplo es la forma más sencilla, que envía la información a *programa.php* mediante GET. Hay que recalcar que el receptor indicado en `action` **debe** ser un programa capaz de procesar la información en el servidor, independientemente del lenguaje de programación en que haya sido hecho. En el ejemplo se asume que es un programa PHP.
+>- El segundo ejemplo utiliza ahora el método POST. Esta es tal vez la configuración más común de un formulario, dado que lo que se envía por POST va en el cuerpo de la petición y "no se ve".
+>   - Lo que se envía por GET se adjunta a la URL de la petición y se verá en la línea de direcciones del browser.
+>- El tercer ejemplo es la configuración utilizada **obligatoriamente** para enviar archivos desde el cliente hacia el servidor: hay que hacerlo por POST y con el encodaje multipart/form-data. Si no se lo hace así, el contenido del archivo no será enviado sino sólo su nombre.
+
+- `input` es un elemento genérico, que puede tomar varias formas, para enviar distintos tipos de información en el formulario. Es imprescindible configurarlo con los atributos `type` y `name`.
+    - `type` indica la forma o tipo del elemento. Hay una gran variedad de tipos ([revíselos](https://www.w3schools.com/html/html_form_input_types.asp)), pero tal vez los más usados sean `text`, `password`, `radio`, `checkbox` y `submit`
+        - `text` permite al usuario digitar un texto pequeño en una sola línea
+        - `password` permite ingresar un texto que no se va a visualizar en la pantalla. Es usado, por ejemplo, en formularios de login
+            - Atención! al enviar passwords en un formulario es necesario, 1) usar POST, o se verá el password en la línea de dirección del browser y 2) trabajar sobre HTTPS para que el password (todo realmente) vaya cifrado hasta el servidor
+        - `radio` es un botón de opción. Suelen ir en grupo, y solo se puede escoger uno de ellos en el grupo. El grupo lo forman todos los elemntos con el mismo `name`.Utiliza además el atributo `value`. 
+        - `checkbox` también suele ir en grupos, y permiten escoger varias de las opciones indicadas en el grupo. También utiliza el atributo `value`
+        - `submit` es un tipo especial usado para enviar la información del formulario al servidor. Al usarlo se omite el atributo `name`, pero se añade `value`
+    - Los datos que se envían al servidor por cada elemento `input`, toman el formato `clave=valor`. `name` permite indicar la clave (el valor será lo que ingresó o seleccionó el usuario). A continuación ciertos ejemplos:
+
+```html
+<input type='text' name='test'/>
+
+<input type='password' name='pwd'/>
+
+<input type='radio' name='opt' value='uno'/>
+<input type='radio' name='opt' value='dos'/>
+
+<input type='checkbox' name='opt' value='uno'/>
+<input type='checkbox' name='opt' value='dos'/>
+
+<input type='submit' value='Enviar'/>
+```
+>- El primer ejemplo presenta un cuadro donde el usuario puede tipear. Si el usuario escribió "algo", se enviará "test=algo"
+>- El ejemplo password es igual que text, pero cuando el usuario tipee, se verán unos círculos o asteriscos en lugar de los caracteres reales. Si el usario escribió "1234", se enviará "pwd=1234"
+>- El ejemplo radio, dependiendo de cuál se seleccionó, enviará "opt=uno" o "opt=dos"
+>- El ejemplo checkbox permitiría seleccionar las dos casillas. Si es así, se enviará "opt=uno&opt=dos"
+>- Finalmente, submit presentará un botón con el texto "Enviar". Al presionarlo, toda la información del formulario será enviada al programa definido en el atributo action del formulario
+
+Hay una gran variedad de alternativas y elementos que pueden usarse en un formulario. [Familiarísese con ellos](https://www.w3schools.com/html/html_forms.asp).
 
 # Otro material
 
+<!--
 ## Presentación
 
 Revise este link: [https://bit.ly/3b3oCD6](https://bit.ly/3b3oCD6)
+-->
 
 ### Ejemplos
 
