@@ -240,6 +240,36 @@ Vamos a revisar aquí algunos de los elementos HTML más comunes:
         ```    
 > Hay muchísimos elementos html que pueden utilizarse. Para revisarlos siga [este link](https://www.w3schools.com/tags/).
 
+## Viewport
+
+Este elemento merece su sección propia dada su importancia en el diseño adaptable. El correcto manejo de esta etiqueta permitirá un mejor renderizado de su página dependiendo del tamaño o resolución de la pantalla en que se presente.
+
+El viewport es el área de la ventana del browser, en la que se puede visualizar contenido. No necesariamente tiene el mismo tamaño de la ventana, y cuando es más grande, el browser proporcionará barras de desplazamiento para poder visualizar todo el contenido.
+
+> Muchos dispositivos móviles renderizan la página en un viewport mucho más grande que la pantalla, y luego lo achican (zoom out) para que se pueda ver todo su contenido en la pantalla. Luego el usuario podrá desplazarse y agrandar las partes que le interesa visualizar en mayor detalle. Esto se usa especialmente con páginas que no han sido diseñadas para móvil, y cuyo contenido resultaría ilisible si se renderiza en un viewport muy pequeño. Sin embargo, esta técnica no es óptima y puede causar otros problemas a su vez.
+
+El viewport es una `meta` etiqueta, de manera que se la incluye dentro de `head`, de la siguiente manera:
+```html
+...
+<head>
+    <meta name="viewport" content="..." />
+    ...
+</head>
+...
+```
+>- El atributo `name` debe llevar el valor `viewport`, y el atributo `content` tendrá una lista con las configuraciones necesarias.
+
+ Una típica etiqueta viewport optimizada para dispositivos móviles, se ve de la siguiente manera:
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+```
+
+>- El atributo `width` indica el ancho del viewport y puede tener cualqueir valor en pixeles entre 1 y 10000. En este caso, se usa el valor especial `device-width`, que indica que se adopte al ancho de la pantalla del dispositivo.
+>- El atributo `initial-scale` indica el zoom inicial, al cargarse la página, que deberá aplicarse al contenido del viewport. El valor puede ir entre 0.1 y 10. El 1 es el valor por defecto, que indica que no hay zoom.
+
+Familiarísese con el [viewport](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag)
+
 ## Elementos semánticos
 
 Los elementos típicos HTML no llevan ninguna información acerca de su contenido. A partir de HTML5 se añadieron elementos que indican el tipo de información que incluyen.
